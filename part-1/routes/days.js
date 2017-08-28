@@ -1,4 +1,4 @@
-const daysApi = require('express').Router()
+const router = require('express').Router()
 
 const daysOfWeek = {
   monday: 1,
@@ -10,7 +10,7 @@ const daysOfWeek = {
   sunday: 7
 }
 
-daysApi.get('/:day', function(req, res){
+router.get('/:day', function(req, res){
   let day = req.params.day.toLowerCase()
   if(daysOfWeek.hasOwnProperty(day)){
     res.status(200)
@@ -21,4 +21,4 @@ daysApi.get('/:day', function(req, res){
   }
 })
 
-module.exports = daysApi
+module.exports = router
