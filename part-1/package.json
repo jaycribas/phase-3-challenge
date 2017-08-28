@@ -1,0 +1,26 @@
+{
+  "name": "part-1",
+  "version": "1.0.0",
+  "description": "Simple web app",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.15.4"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  },
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaycribas/phase-3-challenge.git"
+  },
+  "author": "Jay Cribas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jaycribas/phase-3-challenge/issues"
+  },
+  "homepage": "https://github.com/jaycribas/phase-3-challenge#readme"
+}
