@@ -7,7 +7,7 @@ router.post('/', function(req, res){
   if(Array.isArray(array1) && Array.isArray(array2))
     res.json({ "result": array1.concat(array2) })
   else
-    res.json({ "error": "Input data should be of type Array." })
+    res.status(400).json({ "error": "Input data should be of type Array." })
 })
 
 module.exports = router
