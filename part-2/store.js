@@ -1,15 +1,16 @@
 #!/usr/bin/env node
 
 const command = process.argv[2]
-const { productList } = require('./db/database')
+const { productListBySection,  listOrdersByShopperID } = require('./db/database')
 
 switch (command) {
   case 'product-list':
     let section = process.argv[3]
-    productList(section)
+    productListBySection(section)
     break
   case 'shopper-orders':
-    console.log('shopper-orders will go here')
+    let id = process.argv[3]
+    listOrdersByShopperID(id)
     break
   case 'real-shoppers':
     console.log('real-shoppers will go here')
