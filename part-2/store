@@ -1,0 +1,29 @@
+#!/usr/bin/env node
+
+const command = process.argv[2]
+const {
+    productListBySection,
+    listOrdersByShopperID,
+    listRealShoppers } = require('./db/database')
+
+switch (command) {
+  default:
+    console.error(`Hmm, something went wrong, try one of these commands:
+    ./store product-list <section>
+    ./store shopper-orders <shopper-id>
+    ./store real-shoppers`)
+
+  case 'product-list':
+    let section = process.argv[3]
+    productListBySection(section)
+    break
+
+  case 'shopper-orders':
+    let id = process.argv[3]
+    listOrdersByShopperID(id)
+    break
+
+  case 'real-shoppers':
+    listRealShoppers()
+    break
+}

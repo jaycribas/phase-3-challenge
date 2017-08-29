@@ -11,7 +11,7 @@ const productListBySection = section => {
     console.table(productResults.rows)
     client.end()
   })
-  .catch( err => console.log(err.message) )
+  .catch( err => console.error(err.message) )
 }
 
 const listOrdersByShopperID = id => {
@@ -30,10 +30,26 @@ const listOrdersByShopperID = id => {
     console.table(orderResults.rows)
     client.end()
   })
-  .catch( err => console.log(err.message) )
+  .catch( err => console.error(err.message) )
+}
+
+const listRealShoppers = () => {
+  client.query(`
+    SELECT shoppers.name, count(shopper_id)
+    FROM orders
+    LEFT OUTER JOIN shoppers
+      ON shoppers.id = orders.shopper_id
+    GROUP BY shoppers.id
+  `)
+  .then( realShoppersResults => {
+    console.table(realShoppersResults.rows)
+    client.end()
+  })
+  .catch( err => console.error(err.message) )
 }
 
 module.exports = {
   productListBySection,
-  listOrdersByShopperID
+  listOrdersByShopperID,
+  listRealShoppers
 }
