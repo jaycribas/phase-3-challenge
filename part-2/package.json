@@ -1,0 +1,24 @@
+{
+  "name": "part-2",
+  "version": "1.0.0",
+  "description": "Command Line Grocery Store",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "db:create": "createdb groceries",
+    "db:drop": "dropdb groceries",
+    "db:schema": "psql groceries < ./db/schema.sql",
+    "db:seed": "psql groceries < ./db/load-data.sql",
+    "db:reset": "npm run db:drop && npm run db:create && npm run db:schema && npm run db:seed"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaycribas/phase-3-challenge.git"
+  },
+  "author": "Jay Cribas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jaycribas/phase-3-challenge/issues"
+  },
+  "homepage": "https://github.com/jaycribas/phase-3-challenge#readme"
+}
