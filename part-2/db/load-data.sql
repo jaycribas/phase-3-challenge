@@ -4,7 +4,7 @@ INSERT INTO shoppers (name)
 VALUES ('Robyn'), ('Bjork'), ('Amy'), ('Shirley'), ('Thom');
 
 INSERT INTO orders (shopper_id)
-VALUES ('1'), ('2'), ('3'), ('2'), ('5');
+VALUES (1), (2), (3), (2), (5);
 
 INSERT INTO order_details (order_id, product_id) VALUES
   (1,5),
