@@ -5,13 +5,16 @@ document.addEventListener("DOMContentLoaded", function(event) {
   const addBtns = document.getElementsByClassName('add-to-cart')
   const modalItemList = document.getElementById('modal-item-section')
   const modalTotalAmount = document.getElementById('items-total')
+  const clearBtn = document.getElementById('clear-cart')
 
   // Open modal
   modalBtn.addEventListener('click', function(){
     document.getElementById('modal').style.display = 'block'
     setModalHTML()
     modalItemList.innerHTML = setModalHTML()
-    modalTotalAmount.innerHTML = `$${cartTotal()}`
+    if(cartItems.length > 0){
+      modalTotalAmount.innerHTML = '$' + parseFloat(cartTotal()).toFixed(2)
+    }
   })
 
   // Close modal
@@ -59,7 +62,16 @@ document.addEventListener("DOMContentLoaded", function(event) {
     return prices.reduce(function(sum, num){
       return sum + num
     })
-
   }
+
+  // Clear cart
+  function clearCart(){
+    cartItems.length = 0
+    count = 0
+    modalItemList.innerHTML = ''
+    modalTotalAmount.textContent = '$0'
+    document.getElementById('cart-item-count').innerHTML = '(0)'
+  }
+  clearBtn.addEventListener('click', clearCart)
 
 })
